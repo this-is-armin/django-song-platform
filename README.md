@@ -39,3 +39,10 @@
 ```python
 SOCIAL_AUTH_GITHUB_KEY = 'your-client-id'
 SOCIAL_AUTH_GITHUB_SECRET = 'your-client-secret'
+```
+
+#
+![Project Image](image_for_github/songs-page.png)
+![Project Image](image_for_github/artists-page.png)
+![Project Image](image_for_github/song-detail-page.png)
+![Project Image](image_for_github/profile-page.png)
