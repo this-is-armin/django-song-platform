@@ -17,25 +17,25 @@
 
     python manage.py runserver
 
-### GitHub OAuth Setup:
-#### Go to GitHub Developer Settings
+# GitHub OAuth Setup:
+### Go to GitHub Developer Settings
 
-Click "New OAuth App"
+> Click "New OAuth App"
 
-Fill in the details:
+> Fill in the details:
 
-Application name: Your App Name
+> Application name: Your App Name
 
-Homepage URL: http://localhost:8000
+> Homepage URL: http://localhost:8000
 
-Authorization callback URL: http://localhost:8000/oauth/complete/github/
+> Authorization callback URL: http://localhost:8000/oauth/complete/github/
 
-Click "Register application"
+> Click "Register application"
 
-Copy the Client ID and generate a Client Secret
+> Copy the Client ID and generate a Client Secret
 
-In your settings.py, add:
+> In your settings.py, add:
 
-python
+```python
 SOCIAL_AUTH_GITHUB_KEY = 'your-client-id'
 SOCIAL_AUTH_GITHUB_SECRET = 'your-client-secret'
