@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Artists | Singers {% endblock %}
+
+{% block extra_headers %}
+<link rel="stylesheet" href="{% static 'artists/css/list.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if page_obj %}
+    <form action="" method="get" class="search-form">
+        <input type="text" name="search" placeholder="Search in artists..." required class="form-control">
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+
+    <div class="artists-container">
+    {% for artist in page_obj %}
+    <a href="{{ artist.get_absolute_url }}" class="artist-link">
+        <div class="artist-card">
+            <div class="artist-img">
+                {% if artist.image %}
+                <img src="{{ artist.image.url }}" alt="{{ artist.name }}">
+                {% else %}
+                <img src="{% static 'artists/images/default-artist-image.jpg' %}" alt="default artist image">
+                {% endif %}
+            </div>
+            <div class="artist-info">
+                <h5>{{ artist.name }}</h3>
+            </div>
+        </div>
+    </a>
+    {%  endfor %}
+    </div>
+
+    {% include 'incs/pagination.html' %}
+{% else %}
+    <div class="text-center">
+        <p>No artists available yet.</p>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block extra_headers %}
+<link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-header">
+        <h5>Login to access your personal account</h5>
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'auth:begin' 'github' %}?prompt=select_account" class="btn btn-outline-info">Login with GitHub</a>
+    </div>
+</div>
+
+{% endblock %}

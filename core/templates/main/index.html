@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    {% if request.user.is_authenticated %}
+        <p>You can access your <a href="{{ request.user.get_profile_url }}">Profile</a></p>
+    {% else %}
+        <p>To access your profile, first <a href="{% url 'accounts:login' %}">Login</a></p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.login-header {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+    }
+    
+    .login-header h5 {
+        font-size: 0.9rem;
+    }
+}

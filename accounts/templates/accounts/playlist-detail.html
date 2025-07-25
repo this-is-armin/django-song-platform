@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} {{ playlist.name }} | PlayList {% endblock %}
+
+{% block extra_headers %}
+<link rel="stylesheet" href="{% static 'accounts/css/playlist-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if page_obj %}
+    <form action="" method="get" class="search-form">
+        <input type="text" name="search" placeholder="Search in songs..." required class="form-control">
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+
+    <div class="text-center">
+        <a href="{{ playlist.get_delete_url }}" class="btn btn-danger">Delete PlayList</a>
+    </div>
+
+    <div class="songs-container">
+    {% for song in page_obj %}
+    <a href="{{ song.get_absolute_url }}" class="song-link">
+        <div class="song-card">
+            <div class="song-img">
+                {% if song.image %}
+                <img src="{{ song.image.url }}" alt="{{ song.name }} by {{ song.artist.name }}">
+                {% else %}
+                <img src="{% static 'songs/images/default-song-image.jpg' %}" alt="default song image">
+                {% endif %}
+            </div>
+            <div class="song-info">
+                <h5>{{ song.name }}</h3>
+                <h6>{{ song.artist.name }}</h6>
+            </div>
+        </div>
+    </a>
+    {%  endfor %}
+    </div>
+    
+    {% include 'incs/pagination.html' %}
+{% else %}
+    <div class="text-center">
+        <p>No songs available yet.</p>
+    </div>
+{% endif %}
+
+{% endblock %}
